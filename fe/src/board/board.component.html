@@ -1,0 +1,21 @@
+<!-- board.component.html -->
+<div id="board" class="board">
+    <div 
+      *ngFor="let audio of audioFiles; let i = index"
+      class="track"
+    >
+      <div 
+        class="audio-unit"
+        [attr.data-index]="i"
+        (mousedown)="onDragStart($event, i)"
+        [ngStyle]="{
+          'transform': 'translateX(' + audio.x + 'px)'
+        }"
+      >
+        {{ audio.name }}
+      </div>
+    </div>
+</div>
+<div class="button-container">
+  <button (click)="mergeAudio()">Merge Audio</button>
+</div>
